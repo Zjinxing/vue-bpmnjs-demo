@@ -1,6 +1,9 @@
 <template>
   <div class="about">
-    <div ref="container" class="container"></div>
+    <div class="wrapper">
+      <div ref="container" class="container"></div>
+      <div ref="panel" class="panel"></div>
+    </div>
     <div class="btns">
       <el-upload
         action=""
@@ -16,9 +19,13 @@
 
 <script>
 import BpmnModeler from 'bpmn-js/lib/Modeler'
+import propertiesPanelModule from 'bpmn-js-properties-panel'
+import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
+import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 import diagramXML from '../resource/newDiagram.bpmn'
 import 'bpmn-js/dist/assets/diagram-js.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
+import 'diagram-js/assets/diagram-js.css'
 
 export default {
   data () {
@@ -32,8 +39,19 @@ export default {
   },
   mounted () {
     const container = this.$refs.container
+    const panel = this.$refs.panel
     this.modeler = new BpmnModeler({
-      container: container
+      container: container,
+      propertiesPanel: {
+        parent: panel
+      },
+      additionalModules: [
+        propertiesPanelModule,
+        propertiesProviderModule
+      ],
+      moddleExtensions: {
+        camunda: camundaModdleDescriptor
+      }
     })
     this.openDiagram(diagramXML)
     this.modeler.on('commandStack.changed', () => {
@@ -43,14 +61,18 @@ export default {
         } else {
           // console.log('bpmnData: ', svg)
           const encodedData = encodeURIComponent(svg)
-          this.svgData = 'data:application/bpmn20-xml;charset=UTF-8,' + encodedData,
+          this.svgData = `data:application/bpmn20-xml;charset=UTF-8,${encodedData}`
           this.svgName = 'diagram.svg'
         }
       })
       this.modeler.saveXML({ format: true }, (err, xml) => {
+        if (err) {
+          console.log('error: ', err)
+          return
+        }
         console.log('xml', xml)
         const encodedData = encodeURIComponent(xml)
-        this.bpmnData = 'data:application/bpmn20-xml;charset=UTF-8,' + encodedData,
+        this.bpmnData = 'data:application/bpmn20-xml;charset=UTF-8,' + encodedData
         this.bpmnName = 'diagram.bpmn'
       })
     })
@@ -85,11 +107,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+@import url('./about/about.css');
+.wrapper {
+  display: flex;
   width: 100%;
-  height: 75vh;
-  outline: 1px dashed #f00;
-  visibility: visible;
+  height: 80vh;
+  .container {
+    flex: 1;
+    outline: 1px dashed #ff8888;
+    height: 100%;
+  }
+  .panel {
+    width: 300px;
+    height: 100%;
+    outline: 1px dashed #ff8888;
+    overflow-y: scroll;
+  }
 }
 .upload {
   display: inline-block;

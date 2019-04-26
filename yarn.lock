@@ -1600,6 +1600,18 @@ bpmn-font@^0.8.0:
   resolved "https://registry.npm.taobao.org/bpmn-font/download/bpmn-font-0.8.0.tgz#85b18715faede345cd33c8a48f50bbe557ff76c2"
   integrity sha1-hbGHFfrt40XNM8ikj1C75Vf/dsI=
 
+bpmn-js-properties-panel@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.npm.taobao.org/bpmn-js-properties-panel/download/bpmn-js-properties-panel-0.30.0.tgz#ade58fa7f6153a2e0a50377e7540b2559069222d"
+  integrity sha1-reWPp/YVOi4KUDd+dUCyVZBpIi0=
+  dependencies:
+    ids "^1.0.0"
+    inherits "^2.0.1"
+    lodash "^4.17.10"
+    min-dom "^3.1.1"
+    scroll-tabs "^1.0.1"
+    selection-update "^0.1.2"
+
 bpmn-js@^3.4.1:
   version "3.4.1"
   resolved "https://registry.npm.taobao.org/bpmn-js/download/bpmn-js-3.4.1.tgz#95f72ce954bf63d2e4bfb09da55fb374f4389507"
@@ -1875,6 +1887,13 @@ camelcase@^5.0.0:
   version "5.3.1"
   resolved "https://registry.npm.taobao.org/camelcase/download/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha1-48mzFWnhBoEd8kL3FXJaH0xJQyA=
+
+camunda-bpmn-moddle@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/camunda-bpmn-moddle/download/camunda-bpmn-moddle-3.2.0.tgz#826af453a729d7a1695baaa8fa942a5cfa7e5c3a"
+  integrity sha1-gmr0U6cp16FpW6qo+pQqXPp+XDo=
+  dependencies:
+    min-dash "^3.0.0"
 
 caniuse-api@^3.0.0:
   version "3.0.0"
@@ -4262,6 +4281,11 @@ ids@^0.2.0:
   dependencies:
     hat "^0.0.3"
 
+ids@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/ids/download/ids-1.0.0.tgz#df67f2d37b81d7c2effc87e03d17ebff95a58c05"
+  integrity sha1-32fy03uB18Lv/IfgPRfr/5WljAU=
+
 ieee754@^1.1.4:
   version "1.1.13"
   resolved "https://registry.npm.taobao.org/ieee754/download/ieee754-1.1.13.tgz#ec168558e95aa181fd87d37f55c32bbcb6708b84"
@@ -5219,12 +5243,12 @@ mimic-fn@^2.0.0:
   resolved "https://registry.npm.taobao.org/mimic-fn/download/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha1-ftLCzMyvhNP/y3pptXcR/CCDQBs=
 
-min-dash@^3.0.0, min-dash@^3.2.0, min-dash@^3.4.0:
+min-dash@^3.0.0, min-dash@^3.1.0, min-dash@^3.2.0, min-dash@^3.4.0:
   version "3.4.0"
   resolved "https://registry.npm.taobao.org/min-dash/download/min-dash-3.4.0.tgz#994346eb1fe831516f47467b72cca78bdf8a961c"
   integrity sha1-mUNG6x/oMVFvR0Z7csyni9+Klhw=
 
-min-dom@^3.0.0:
+min-dom@^3.0.0, min-dom@^3.1.0, min-dom@^3.1.1:
   version "3.1.1"
   resolved "https://registry.npm.taobao.org/min-dom/download/min-dom-3.1.1.tgz#53440d23d32a0a8bb6b2e657ca4cfd39d998a29a"
   integrity sha1-U0QNI9MqCou2suZXykz9OdmYopo=
@@ -5319,6 +5343,11 @@ mississippi@^3.0.0:
     pumpify "^1.3.3"
     stream-each "^1.1.0"
     through2 "^2.0.0"
+
+mitt@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.npm.taobao.org/mitt/download/mitt-1.1.3.tgz#528c506238a05dce11cd914a741ea2cc332da9b8"
+  integrity sha1-UoxQYjigXc4RzZFKdB6izDMtqbg=
 
 mixin-deep@^1.2.0:
   version "1.3.1"
@@ -7055,10 +7084,24 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
+scroll-tabs@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/scroll-tabs/download/scroll-tabs-1.0.1.tgz#bac04e4a1725e8a03344bae644dd6d7cdc192452"
+  integrity sha1-usBOShcl6KAzRLrmRN1tfNwZJFI=
+  dependencies:
+    min-dash "^3.1.0"
+    min-dom "^3.1.0"
+    mitt "^1.1.3"
+
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/select-hose/download/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
+
+selection-update@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npm.taobao.org/selection-update/download/selection-update-0.1.2.tgz#803a044dcc6edab5a3ae648f5f0357e89ad66b96"
+  integrity sha1-gDoETcxu2rWjrmSPXwNX6JrWa5Y=
 
 selfsigned@^1.10.4:
   version "1.10.4"
