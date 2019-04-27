@@ -23,6 +23,7 @@ import propertiesPanelModule from 'bpmn-js-properties-panel'
 import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 import diagramXML from '../resource/newDiagram.bpmn'
+import customTranslate from '../translate/customerTranslate.js'
 import 'bpmn-js/dist/assets/diagram-js.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
 import 'diagram-js/assets/diagram-js.css'
@@ -40,6 +41,9 @@ export default {
   mounted () {
     const container = this.$refs.container
     const panel = this.$refs.panel
+    const customTranslateModule = {
+      translate: ['value', customTranslate]
+    }
     this.modeler = new BpmnModeler({
       container: container,
       propertiesPanel: {
@@ -47,7 +51,8 @@ export default {
       },
       additionalModules: [
         propertiesPanelModule,
-        propertiesProviderModule
+        propertiesProviderModule,
+        customTranslateModule
       ],
       moddleExtensions: {
         camunda: camundaModdleDescriptor
