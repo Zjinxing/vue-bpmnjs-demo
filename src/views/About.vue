@@ -24,6 +24,11 @@ import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camu
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 import diagramXML from '../resource/newDiagram.bpmn'
 import customTranslate from '../translate/customerTranslate.js'
+import resizeAllModule from 'bpmn-js-nyan/lib/resize-all-rules'
+import colorPickerModule from 'bpmn-js-nyan/lib/color-picker'
+import nyanDrawModule from 'bpmn-js-nyan/lib/nyan/draw'
+// import nyanPaletteModule from 'bpmn-js-nyan/lib/nyan/palette'
+// import customModule from '../customElements'
 import 'bpmn-js/dist/assets/diagram-js.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
 import 'diagram-js/assets/diagram-js.css'
@@ -52,7 +57,12 @@ export default {
       additionalModules: [
         propertiesPanelModule,
         propertiesProviderModule,
-        customTranslateModule
+        customTranslateModule,
+        resizeAllModule,
+        colorPickerModule,
+        nyanDrawModule,
+        // nyanPaletteModule
+        // customModule
       ],
       moddleExtensions: {
         camunda: camundaModdleDescriptor
@@ -75,7 +85,6 @@ export default {
           console.log('error: ', err)
           return
         }
-        console.log('xml', xml)
         const encodedData = encodeURIComponent(xml)
         this.bpmnData = 'data:application/bpmn20-xml;charset=UTF-8,' + encodedData
         this.bpmnName = 'diagram.bpmn'

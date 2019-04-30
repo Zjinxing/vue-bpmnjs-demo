@@ -1600,6 +1600,13 @@ bpmn-font@^0.8.0:
   resolved "https://registry.npm.taobao.org/bpmn-font/download/bpmn-font-0.8.0.tgz#85b18715faede345cd33c8a48f50bbe557ff76c2"
   integrity sha1-hbGHFfrt40XNM8ikj1C75Vf/dsI=
 
+bpmn-js-nyan@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/bpmn-js-nyan/download/bpmn-js-nyan-2.1.0.tgz#2750a778759b604adb5b2c535eda73b1a0cd6cf8"
+  integrity sha1-J1CneHWbYErbWyxTXtpzsaDNbPg=
+  dependencies:
+    inherits "^2.0.1"
+
 bpmn-js-properties-panel@^0.30.0:
   version "0.30.0"
   resolved "https://registry.npm.taobao.org/bpmn-js-properties-panel/download/bpmn-js-properties-panel-0.30.0.tgz#ade58fa7f6153a2e0a50377e7540b2559069222d"
