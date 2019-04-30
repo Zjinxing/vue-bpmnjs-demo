@@ -6,5 +6,5 @@ module.exports = {
       .use('raw-loader')
       .loader('raw-loader')
       .end()
-  }
+  },
 }

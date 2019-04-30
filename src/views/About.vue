@@ -14,11 +14,15 @@
       <a :href="bpmnData" :download="bpmnName" title="下载为BPMN diagram" class="el-button el-button--primary el-button--mini">下载为BPMN</a>
       <a :href="svgData" :download="svgName" title="下载为SVG" class="el-button el-button--primary el-button--mini">下载为SVG</a>
     </div>
+    <div class="wrapper custom">
+      <div ref="customModeler" class="custom-modeler container"></div>
+    </div>
   </div>
 </template>
 
 <script>
 import BpmnModeler from 'bpmn-js/lib/Modeler'
+import CustomModeler from '../customElements'
 import propertiesPanelModule from 'bpmn-js-properties-panel'
 import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
@@ -40,15 +44,23 @@ export default {
       bpmnData: '',
       bpmnName: 'diagram.bpmn',
       svgData: '',
-      svgName: 'diatram.svg'
+      svgName: 'diatram.svg',
+      customModeler: null,
     }
   },
   mounted () {
     const container = this.$refs.container
+    const custom = this.$refs.customModeler
     const panel = this.$refs.panel
     const customTranslateModule = {
       translate: ['value', customTranslate]
     }
+    this.customModeler = new CustomModeler({
+      container: custom,
+      moddleExtensions: {
+        camunda: camundaModdleDescriptor
+      }
+    })
     this.modeler = new BpmnModeler({
       container: container,
       propertiesPanel: {
@@ -122,18 +134,19 @@ export default {
 
 <style lang="scss" scoped>
 @import url('./about/about.css');
+@import url('//at.alicdn.com/t/font_1170463_mpn52pfx45b.css');
 .wrapper {
   display: flex;
   width: 100%;
-  height: 80vh;
+  overflow: hidden;
   .container {
     flex: 1;
     outline: 1px dashed #ff8888;
-    height: 100%;
+    height: 60vh;
   }
   .panel {
     width: 300px;
-    height: 100%;
+    height: 60vh;
     outline: 1px dashed #ff8888;
     overflow-y: scroll;
   }

@@ -1,4 +1,4 @@
-import { assing, assign } from 'min-dash'
+import { assign } from 'min-dash'
 
 export default class PaletteProvider {
   constructor (palette, create, elementFactory, spaceTool, lassoTool) {
@@ -22,14 +22,14 @@ export default class PaletteProvider {
         }
         create.start(event, shape)
       }
-      const shortType = tyep.replace(/^bpmn:/, '')
+      const shortType = type.replace(/^bpmn:/, '')
       return {
         group,
         className,
         title: title || `Create ${shortType}`,
         action: {
           dragstart: createListener,
-          click: createListener
+          click: createListener,
         }
       }
     }
@@ -40,10 +40,13 @@ export default class PaletteProvider {
 
     assign(actions, {
       'custom-triangle': createAction(
-        'custom:triangle', 'custom', 'icon-custom-triangle'
+        'custom:triangle', 'custom', 'iconfont icon-triangle'
       ),
       'custom-circle': createAction(
-        'custom:circle', 'custom', 'icon-custom-circle'
+        'custom:circle', 'custom', 'iconfont icon-circle'
+      ),
+      'custom-rect': createAction(
+        'custom:rhombus', 'custom', 'iconfont icon-rhombus'
       ),
       'custom-separator': {
         group: 'custom',

@@ -16,6 +16,7 @@
     "core-js": "^2.6.5",
     "diagram-js": "^3.3.0",
     "element-ui": "^2.8.2",
+    "inherits": "^2.0.3",
     "min-dash": "^3.4.0",
     "raw-loader": "^2.0.0",
     "tiny-svg": "^2.2.1",
@@ -32,6 +33,9 @@
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
+    "style-resources-loader": "^1.2.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.21"
   }
 }
